@@ -168,6 +168,7 @@ img {
   padding: 10px;
   font-weight: 600;
   user-select: all;
+  margin-left: 15px;
 }
 
 .date {

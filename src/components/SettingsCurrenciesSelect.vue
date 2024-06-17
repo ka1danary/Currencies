@@ -76,17 +76,12 @@ const toggleCurrency = (currency) => {
 }
 
 .name {
-  display: flex;
-  align-items: center;
-  font-weight: 600;
-}
-
-.name {
   margin-right: 10px;
-  width: 60px;
+  width: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-weight: 600;
 }
 
 .loading {
@@ -134,6 +129,7 @@ const toggleCurrency = (currency) => {
   .name {
     flex-direction: column;
     align-items: flex-start;
+    justify-content: center;
   }
 
   .name > div {

@@ -86,11 +86,11 @@ onUnmounted(() => {
   cursor: pointer;
 }
 
-.select__preview .arrow {
+.arrow {
   transition: transform 0.3s;
 }
 
-.select__preview .arrow.open {
+.arrow.open {
   transform: rotate(180deg);
 }
 

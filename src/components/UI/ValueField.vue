@@ -3,7 +3,9 @@
     <div class="container__field" v-if="!loading">
       <div class="name__container">
         <div class="item__name">
-          <div class="icon">{{ icon }}</div>
+          <div class="icon">
+            <strong>{{ icon }}</strong>
+          </div>
           <div class="text">{{ name }}</div>
         </div>
       </div>
