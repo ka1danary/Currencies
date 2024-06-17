@@ -1,0 +1,37 @@
+.page__container {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  margin-bottom: 30px;
+  margin-top: 50px;
+  height: auto;
+}
+.title_page {
+  height: 80px;
+  border-bottom: 2px solid #d2dbde;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.page__content {
+  margin-top: 40px;
+}
+
+@media (max-width: 1199px) {
+  .page__content {
+    width: 90vw;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1919px) {
+  .page__content {
+    width: 1100px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .page__content {
+    width: 1200px;
+  }
+}

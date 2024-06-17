@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f2fafe;
+  color: #2f2f2f;
+  font-family: Play;
+  font-size: 1em;
+}
+body.modal-open {
+  overflow: hidden;
+}
+body {
+  overflow-x: hidden;
+}
+.title {
+  font-size: 2em;
+  font-weight: 600;
+}
+::selection {
+  background-color: #cfe0e9;
+}
+
+body::-webkit-scrollbar {
+  width: 15px;
+}
+body::-webkit-scrollbar-track {
+  background: rgb(207, 224, 233);
+}
+body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgb(89, 187, 228);
+}

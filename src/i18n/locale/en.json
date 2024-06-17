@@ -1,0 +1,31 @@
+{
+    "nav": {
+        "main": "Main",
+        "settings": "Settings",
+        "lastUpdate": "Last Update:"
+    },
+    "mainPage": {
+        "currencyTitle": "Currency"
+    },
+    "currenciesTableTitle": {
+        "name": "Name",
+        "value": "Value",
+        "date": "Date",
+        "functions": "Functions"
+    },
+    "settingsPage": {
+        "settingsTitle": "Settings",
+        "chodeLanguageTitle": "Language",
+        "baseValueTitle": "Choose basic currency",
+        "selectedCurrenciesTitle": "You can add or remove specific currencies to track"
+    },
+    "autoUpdate": {
+        "autoUpdateTitle": "Data auto update",
+        "frequency": "Update frequency:",
+        "minutes": "min."
+    },
+    "autoUpdatePopUp": {
+        "title": "Data auto update",
+        "nextUpdate": "Next update at"
+    }
+}

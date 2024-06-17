@@ -1,0 +1,31 @@
+{
+    "nav": {
+        "main": "Главная",
+        "settings": "Настройки",
+        "lastUpdate": "Последнее обновление:"
+    },
+    "mainPage": {
+        "currencyTitle": "Валюта"
+    },
+    "currenciesTableTitle": {
+        "name": "Название",
+        "value": "Значение",
+        "date": "Дата",
+        "functions": "Функции"
+    },
+    "settingsPage": {
+        "settingsTitle": "Настройки",
+        "chodeLanguageTitle": "Язык",
+        "baseValueTitle": "Выберите базовую валюту",
+        "selectedCurrenciesTitle": "Вы можете добавить или отключить определенные валюты для отслеживания"
+    },
+    "autoUpdate": {
+        "autoUpdateTitle": "Автоматическое обновление данных",
+        "frequency": "Частота обновления:",
+        "minutes": "мин."
+    },
+    "autoUpdatePopUp" : {
+        "title" : "Автоматическое обновление данных",
+        "nextUpdate" : "Следующее обновление в"
+    }
+}
