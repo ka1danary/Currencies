@@ -30,9 +30,9 @@ export const useValueStore = defineStore('valuesStore', () => {
     try {
       const response = await allApiFunctions.getAllLatestValueOfCurrencies(selectedBaseCurrency.value.name);
       allValuesOfCurrencies.value = response.data;
-      console.log('Price ', allValuesOfCurrencies.value);
     } catch (error) {
-      console.error('Error fetching all values:', error);
+      throw error
+      console.error(error);
     }
   };
 
@@ -42,13 +42,13 @@ export const useValueStore = defineStore('valuesStore', () => {
       allInfoAboutValues.value = response.data;
       console.log('Info ', allInfoAboutValues.value);
     } catch (error) {
-      console.error('Error fetching all info about values:', error);
+      throw error
+      console.error(error);
     }
   };
 
   const buildFullArrayOfCurrencies = async () => {
     isCurrenciesLoading.value = true;
-    console.log('Starting to build full array of currencies');
 
     await getAllValuesOfCurrencies();
     await getAllInfoOfCurrencies();
@@ -68,12 +68,10 @@ export const useValueStore = defineStore('valuesStore', () => {
           isActive: true
         };
       } else {
-        console.warn(`Отсутствуют данные для валюты: ${currencyCode}`);
+
         return null;
       }
-    }).filter(currency => currency !== null);
-
-    console.log('Полный объект =>  ', arrayReadyAssembleObjectWithCurrencies.value);
+    })
     lastUpdateAll.value = new Date();
     isCurrenciesLoading.value = false;
     hasDataAlreadyBeenDownloaded.value = true;
@@ -100,7 +98,8 @@ export const useValueStore = defineStore('valuesStore', () => {
       saveToLocalStorageCurrencies();
       console.log()
     } catch (error) {
-      console.error(`Ошибка обновления ${name}:`, error);
+      throw error
+      console.error(error);
     }
     isCurrencyLoading.value = false;
   };
@@ -121,10 +120,9 @@ export const useValueStore = defineStore('valuesStore', () => {
 
       lastUpdateAll.value = new Date();
 
-      console.log('Обнолвленные валюты => ', arrayReadyAssembleObjectWithCurrencies.value);
       saveToLocalStorageCurrencies();
     } catch (error) {
-      console.error('Ошибка обнолвения:', error);
+      console.error(error);
       throw error;
     } finally {
       isCurrenciesLoading.value = false;
@@ -141,7 +139,6 @@ export const useValueStore = defineStore('valuesStore', () => {
       }
       return currency;
     });
-    console.log('Массив после настроек => ', arrayReadyAssembleObjectWithCurrencies.value);
     saveToLocalStorageCurrencies();
   };
 
@@ -161,8 +158,6 @@ export const useValueStore = defineStore('valuesStore', () => {
   onMounted(() => {
     if (!hasDataAlreadyBeenDownloaded.value || arrayReadyAssembleObjectWithCurrencies.value.length === 0) {
       buildFullArrayOfCurrencies();
-    } else {
-      console.log('Data has already been downloaded or array is not empty');
     }
   });
 

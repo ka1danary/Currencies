@@ -29,7 +29,6 @@
     </div>
   </div>
 </template>
-
 <script setup>
 import { useValueStore } from "@/store/ValuesStore";
 import { useHeaderStore } from "@/store/HeaderStore";
@@ -48,7 +47,6 @@ const helperReload = async () => {
   await valueStore.updateAllCurrencies();
 };
 </script>
-
 <style scoped>
 .no-scroll {
   overflow: hidden;
