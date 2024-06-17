@@ -30,12 +30,15 @@
 - epic-spinners
 - i18n
 
-### Ссылка на шаблон в Figma
+---
 
+## Ссылка на шаблон в Figma
 
-## Общая информация по проекту
+https://www.figma.com/design/uzZth7zQYLiTbyWL6yAPod/Test-IT?node-id=284-10&t=E6KKQ5Uuys0nUU8e-1
 
 ---
+
+## Общая информация по проекту
 
 #### Страницы
 
