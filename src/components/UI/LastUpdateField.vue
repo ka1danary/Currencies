@@ -15,7 +15,6 @@ import { computed } from "vue";
 import { defineProps } from "vue";
 import { parseDate } from "@/helpers/helperFunction";
 
-
 const props = defineProps({
   date: {
     type: String,

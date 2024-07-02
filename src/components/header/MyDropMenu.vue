@@ -16,20 +16,34 @@
           {{ $t("nav.lastUpdate") }}
           <div class="date__time">
             <div class="date">{{ parsedDate.day }}.{{ parsedDate.month }}</div>
-            <div class="time">{{ parsedDate.hours }}:{{ parsedDate.minutes }}</div>
+            <div class="time">
+              {{ parsedDate.hours }}:{{ parsedDate.minutes }}
+            </div>
           </div>
         </div>
         <div @click="setHome">
           <router-link to="/" class="menu__item" @click="toggleMenu(false)">
-            <img src="../../icons/home-icons/home-dropdown.svg" alt="home" />
+            <img
+              src="../../icons/home-icons/home-dropdown.svg"
+              alt="home"
+              style="margin-right: 10px"
+            />
             <div :class="{ active: homeIcon }">
               {{ $t("nav.main") }}
             </div>
           </router-link>
         </div>
         <div @click="setSettings">
-          <router-link to="/settings" class="menu__item" @click="toggleMenu(false)">
-            <img src="../../icons/setting-icons/settings-off.svg" alt="settings" />
+          <router-link
+            to="/settings"
+            class="menu__item"
+            @click="toggleMenu(false)"
+          >
+            <img
+              src="../../icons/setting-icons/settings-off.svg"
+              alt="settings"
+              style="margin-right: 10px"
+            />
             <div :class="{ active: settingIcon }">
               {{ $t("nav.settings") }}
             </div>
@@ -89,10 +103,6 @@ const settingIcon = computed(() => headerStore.settingsIcon);
 .menu__icon:hover {
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-}
-
-img {
-  margin-right: 10px;
 }
 
 .menu__overlay {
@@ -190,6 +200,7 @@ img {
 
 .menu__item:hover {
   background-color: #f0f0f0;
+  border-radius: 10px;
 }
 
 .menu__item .active {

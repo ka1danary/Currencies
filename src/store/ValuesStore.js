@@ -30,9 +30,9 @@ export const useValueStore = defineStore('valuesStore', () => {
     try {
       const response = await allApiFunctions.getAllLatestValueOfCurrencies(selectedBaseCurrency.value.name);
       allValuesOfCurrencies.value = response.data;
-    } catch (error) {
+    }
+    catch (error) {
       throw error
-      console.error(error);
     }
   };
 
@@ -40,42 +40,46 @@ export const useValueStore = defineStore('valuesStore', () => {
     try {
       const response = await allApiFunctions.getAllInfoAboutValuesOfCurrencies();
       allInfoAboutValues.value = response.data;
-      console.log('Info ', allInfoAboutValues.value);
-    } catch (error) {
+    }
+    catch (error) {
       throw error
-      console.error(error);
     }
   };
 
   const buildFullArrayOfCurrencies = async () => {
     isCurrenciesLoading.value = true;
 
-    await getAllValuesOfCurrencies();
-    await getAllInfoOfCurrencies();
+    try {
+      await getAllValuesOfCurrencies();
+      await getAllInfoOfCurrencies();
 
-    allKeysOfCurrencies.value = Object.keys(allValuesOfCurrencies.value);
-    console.log('keys ', allKeysOfCurrencies.value);
-    arrayReadyAssembleObjectWithCurrencies.value = allKeysOfCurrencies.value.map((currencyCode) => {
-      const info = allInfoAboutValues.value[currencyCode];
-      const value = allValuesOfCurrencies.value[currencyCode];
+      allKeysOfCurrencies.value = Object.keys(allValuesOfCurrencies.value);
+      console.log('keys ', allKeysOfCurrencies.value);
+      arrayReadyAssembleObjectWithCurrencies.value = allKeysOfCurrencies.value.map((currencyCode) => {
+        const info = allInfoAboutValues.value[currencyCode];
+        const value = allValuesOfCurrencies.value[currencyCode];
 
-      if (info && value) {
-        return {
-          code: info.symbol,
-          name: currencyCode,
-          value: value,
-          lastUpdate: new Date().toISOString(),
-          isActive: true
-        };
-      } else {
-
-        return null;
-      }
-    })
-    lastUpdateAll.value = new Date();
-    isCurrenciesLoading.value = false;
-    hasDataAlreadyBeenDownloaded.value = true;
-    saveToLocalStorageCurrencies();
+        if (info && value) {
+          return {
+            code: info.symbol,
+            name: currencyCode,
+            value: value,
+            lastUpdate: new Date().toISOString(),
+            isActive: true
+          };
+        }
+        else {
+          return null;
+        }
+      })
+      lastUpdateAll.value = new Date();
+      isCurrenciesLoading.value = false;
+      hasDataAlreadyBeenDownloaded.value = true;
+      saveToLocalStorageCurrencies();
+    }
+    catch (error) {
+      throw error
+    }
   };
 
   const updateConcreteCurrency = async (name) => {
@@ -96,12 +100,14 @@ export const useValueStore = defineStore('valuesStore', () => {
         return currency;
       });
       saveToLocalStorageCurrencies();
-      console.log()
-    } catch (error) {
-      throw error
-      console.error(error);
+
     }
-    isCurrencyLoading.value = false;
+    catch (error) {
+      throw error
+    }
+    finally {
+      isCurrenciesLoading.value = false;
+    }
   };
 
   const updateAllCurrencies = async () => {
@@ -121,10 +127,11 @@ export const useValueStore = defineStore('valuesStore', () => {
       lastUpdateAll.value = new Date();
 
       saveToLocalStorageCurrencies();
-    } catch (error) {
-      console.error(error);
+    }
+    catch (error) {
       throw error;
-    } finally {
+    }
+    finally {
       isCurrenciesLoading.value = false;
     }
   };

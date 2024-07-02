@@ -91,6 +91,7 @@ const helperReload = async () => {
     display: none;
   }
 }
+
 @media (min-width: 992px) {
   .drop__menu {
     display: none;
